@@ -3,15 +3,17 @@
 require_once 'App/models/Cidade.php';
 
 //Criando objeto
-$cidade = new Cidade();
+try{
+    $cidade = new Cidade("Itapira", "sp");
+    $cidade->setId(1);
 
-//Atribuindo valores diretamente
-$cidade->id = 1;
-$cidade->nome = "Itapira";
-$cidade->estado = "SP";
+    echo "<h2>Dados da Cidade</h2>";
+    echo "ID: " . $cidade->getId() . "<br>";
+    echo "Nome: " . $cidade->getNome() . "<br>";
+    echo "Estado: " . $cidade->getEstado() . "<br>";
+} 
 
-echo "<pre>";
-var_dump($cidade);
-echo "</pre>";
-
+catch (Exception $e) {
+    echo "Erro: " . $e->getMessage();
+}
 ?>

@@ -46,8 +46,8 @@ class Cidade
 
     public function setEstado(string $estado)
     {
-        $estado = strtoupper(trim($estado));
-        if (strlen($estado) !== 2) {
+        $estado = strtoupper(trim($estado)); //Função transforma em letras maiusculas
+        if (strlen($estado) !== 2) { //Verifica quantos caracteres tem na variavel estado
             throw new Exception("O estado deve conter exatamente 2 letras.");
         }
         $this->estado = $estado;
