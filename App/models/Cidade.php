@@ -1,12 +1,12 @@
 <?php
 
-class Cidade
+class Cidade 
 {
     private $id;
     private $nome;
     private $estado;
 
-    public function __construct(string $nome, string $estado = null)
+    public function __construct(string $nome, string $estado)
     {
         $this->setNome($nome);
         $this->setEstado($estado);
@@ -37,19 +37,23 @@ class Cidade
     public function setNome(string $nome)
     {
         $nome = trim($nome);
-        //Simples validação
+
         if (empty($nome)) {
             throw new Exception("O nome da cidade é obrigatório.");
         }
+
         $this->nome = $nome;
+        
     }
 
     public function setEstado(string $estado)
     {
-        $estado = strtoupper(trim($estado)); //Função transforma em letras maiusculas
-        if (strlen($estado) !== 2) { //Verifica quantos caracteres tem na variavel estado
+        $estado = strtoupper(trim($estado));
+
+        if (strlen($estado) !== 2) {
             throw new Exception("O estado deve conter exatamente 2 letras.");
         }
+
         $this->estado = $estado;
     }
 }
